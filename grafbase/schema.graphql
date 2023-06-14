@@ -1,10 +1,11 @@
-type TodoList @model {
-  title: String!
-  todos: [Todo]
-}
-
-type Todo @model {
-  list: TodoList
-  title: String!
-  complete: Boolean!
+mutation CreateNewPost($title: String!, $url: String!) {
+  postCreate(input: { title: $title, url: $url }) {
+    post {
+      id
+      title
+      url
+      createdAt
+      updatedAt
+    }
+  }
 }
